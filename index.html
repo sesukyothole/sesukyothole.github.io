@@ -3,184 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modul Coding - SMAN 1 Sewon Bantul</title>
+    <title>SMAN 1 Sewon Bantul</title>
+    
     <style>
+        /* Reset & Base Styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f0f4f8;
-            color: #333;
             line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
         }
 
+        /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, #0056b3, #0088cc);
+            background-color: #0d47a1;
             color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        nav {
-            background-color: #003d80;
+            padding: 1rem 5%;
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        nav a {
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffca28;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 71, 161, 0.7), rgba(13, 71, 161, 0.7)), 
+                        url('https://picsum.photos/1200/600') center/cover no-repeat;
+            height: 60vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #ffca28;
+            color: #333;
+            padding: 10px 25px;
+            text-decoration: none;
             font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 4px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
             transition: background 0.3s;
         }
 
-        nav a:hover {
-            background-color: #0056b3;
+        .btn:hover {
+            background-color: #ffb300;
         }
 
+        /* Section Container */
         .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 15px;
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0d47a1;
+        }
+
+        /* Profil / Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .card {
             background: white;
+            padding: 25px;
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .card h2 {
-            color: #0056b3;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #eef2f5;
-            padding-bottom: 5px;
-        }
-
-        code {
-            background-color: #272822;
-            color: #f8f8f2;
-            display: block;
-            padding: 12px;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 10px 0;
-            overflow-x: auto;
-        }
-
-        .interactive-box {
-            background-color: #e9ecef;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        footer {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
-            padding: 15px;
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 30px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #1565c0;
+        }
+
+        /* Interactive Counter Section */
+        .counter-section {
+            background-color: #e3f2fd;
+            text-align: center;
+            padding: 40px 5%;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .counter-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #0d47a1;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Kelas Pemrograman Dasar</h1>
-        <p>SMA Negeri 1 Sewon Bantul</p>
+        <div class="logo">
+            <h1>SMAN 1 SEWON</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#fasilitas">Fasilitas</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#html">HTML</a>
-        <a href="#css">CSS</a>
-        <a href="#js">JavaScript</a>
-    </nav>
+    <section class="hero" id="beranda">
+        <h2>Selamat Datang di SMAN 1 Sewon</h2>
+        <p>Mewujudkan Generasi Unggul, Berkarakter, dan Berprestasi di Kabupaten Bantul</p>
+        <button class="btn" onclick="tampilkanPesan()">Jelajahi Sekolah</button>
+    </section>
 
-    <div class="container">
-
-        <section id="html" class="card">
-            <h2>1. HTML (HyperText Markup Language)</h2>
-            <p>HTML digunakan untuk membuat struktur atau kerangka dari sebuah halaman web.</p>
-            <code>
-&lt;!-- Contoh Tag HTML --&gt;<br>
-&lt;h1&gt;Selamat Datang di SMAN 1 Sewon&lt;/h1&gt;<br>
-&lt;p&gt;Ini adalah paragraf materi HTML.&lt;/p&gt;
-            </code>
-        </section>
-
-        <section id="css" class="card">
-            <h2>2. CSS (Cascading Style Sheets)</h2>
-            <p>CSS digunakan untuk mengatur tampilan visual (desain, warna, layout) pada halaman web.</p>
-            <code>
-/* Contoh Aturan CSS */<br>
-body {<br>
-&nbsp;&nbsp;background-color: #f0f4f8;<br>
-&nbsp;&nbsp;color: #333;<br>
-}
-            </code>
-        </section>
-
-        <section id="js" class="card">
-            <h2>3. JavaScript</h2>
-            <p>JavaScript digunakan untuk menambahkan interaktivitas dan logika pada halaman web.</p>
-            
-            <div class="interactive-box">
-                <p id="teks-interaktif">Klik tombol di bawah untuk melihat aksi JavaScript:</p>
-                <br>
-                <button onclick="ubahTeks()">Ubah Teks</button>
+    <main class="container" id="profil">
+        <h2 class="section-title">Keunggulan Kami</h2>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Akademik Unggul</h3>
+                <p>Kurikulum terintegrasi yang berfokus pada pengembangan nalar kritis dan kreativitas siswa.</p>
             </div>
-        </section>
+            <div class="card">
+                <h3>Karakter Bangsa</h3>
+                <p>Penanaman nilai kedisiplinan, etika, dan kebudayaan lokal Yogyakarta yang kuat.</p>
+            </div>
+            <div class="card">
+                <h3>Ekstrakurikuler</h3>
+                <p>Wadah pengembangan bakat di bidang seni, olahraga, sains, hingga teknologi informasi.</p>
+            </div>
+        </div>
 
-    </div>
+        <div class="counter-section" id="fasilitas">
+            <h3>Kunjungan Digital</h3>
+            <p>Klik tombol di bawah untuk menyapa pengunjung lain (Demo JavaScript):</p>
+            <div class="counter-display" id="sapaanCount">0</div>
+            <button class="btn" onclick="tambahSapaan()">Kirim Sapaan 👋</button>
+        </div>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 SMAN 1 Sewon Bantul — Modul Pembelajaran Pemrograman</p>
+    <footer id="kontak">
+        <p>&copy; 2026 SMAN 1 Sewon Bantul. Hak Cipta Dilindungi.</p>
+        <p><small>Jl. Parangtritis Km 5, Sewon, Bantul, DIY</small></p>
     </footer>
 
     <script>
-        function ubahTeks() {
-            const elemenTeks = document.getElementById('teks-interaktif');
-            elemenTeks.innerText = 'Semangat belajar coding untuk siswa-siswi SMAN 1 Sewon!';
-            elemenTeks.style.color = '#0056b3';
-            elemenTeks.style.fontWeight = 'bold';
+        // 1. Fungsi Alert Sederhana
+        function tampilkanPesan() {
+            alert("Selamat datang di website SMAN 1 Sewon Bantul!");
         }
-    </script>
 
+        // 2. Fungsi Interaktif Menghitung Sapaan
+        let jumlah = 0;
+        function tambahSapaan() {
+            jumlah++;
+            document.getElementById("sapaanCount").innerText = jumlah;
+        }
+
+        // 3. Log Konfirmasi di Console Browser
+        console.log("Website SMAN 1 Sewon berhasil dimuat.");
+    </script>
 </body>
 </html>
