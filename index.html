@@ -1,524 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="icon" type="image/png" href="" sizes="128x128">
-    <title>sesukyothole</title>
+    <title>Modul Coding - SMAN 1 Sewon Bantul</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: "Onest", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url("");
-            background-size: cover;
-            /* Optional: adjust based on your design */
-            background-attachment: fixed;
-            /* Makes the background image fixed */
-            overflow: hidden;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
         }
 
-        /* Media query for mobile devices */
-        @media only screen and (max-width: 600px) {
-            body {
-                background-image: url("");
-                /* Set aspect ratio to 9:16 */
-                background-size: fixed;
-            }
+        header {
+            background: linear-gradient(135deg, #0056b3, #0088cc);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .navbar {
-            padding: 15px 15%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #003d80;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .navbar {
-                padding: 10px;
-                /* Set padding to 10px */
-            }
-        }
-
-        .navbar-brand {
-            color: #fff;
-            font-size: 24px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-brand img {
-            height: 50px;
-            /* Adjust as needed */
-            margin-right: 10px;
-        }
-
-        .navbar-links {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            margin-right: 30%;
-            padding-right: 20px;
-            display: flex;
-        }
-
-        /* Adjust navbar links for smaller screens */
-        @media only screen and (max-width: 1024px) {
-            .navbar-links {
-                margin-right: 0;
-                /* Remove right margin */
-                padding-right: 0;
-                /* Remove right padding */
-                justify-content: flex-end;
-                /* Align items to the end of the navbar */
-            }
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            font-size: 12px;
-        }
-
-        .navbar-links li {
-            font-size: 12px;
-            margin-right: 20px;
-            position: relative;
-        }
-
-        .navbar-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            position: relative;
-        }
-
-        .navbar-links li a:hover {
-            color: #ffd700;
-        }
-
-        .navbar-links li a::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ffd700;
-            transition: width 0.3s ease, box-shadow 0.3s ease;
-            /* Add transition for smooth animation */
-            box-shadow: 0 0 px 0.5px #ffd700;
-            /* Add more intense glow effect */
-        }
-
-        .navbar-links li a:hover::before {
-            width: 100%;
-            box-shadow: 0 0 1px 0.5px #ffd700;
-            /* Increase glow effect on hover */
-        }
-
-        /* Add CSS for dropdown menu */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(15, 15, 15, 0.582);
-            /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
+            justify-content: center;
+            gap: 15px;
             padding: 10px;
-            border-radius: 5px;
         }
 
-        /* Adjust alignment of icon and text in dropdown */
-        .dropdown a {
-            display: flex;
-            align-items: center;
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
 
-        .dropdown a i {
-            padding: 10px;
-            margin-right: 5px;
-        }
-
-        /* Show dropdown menu on hover for desktop */
-        .navbar-links li.dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Show dropdown menu on click for mobile */
-        @media only screen and (max-width: 768px) {
-            .navbar-links li.dropdown .dropdown-menu {
-                display: none;
-            }
-
-            .navbar-links li.dropdown.active .dropdown-menu {
-                display: block;
-            }
-        }
-
-        /* Adjust dropdown menu positioning for smaller screens */
-        @media only screen and (max-width: 1024px) {
-            .dropdown-menu {
-                left: auto;
-                /* Reset left positioning */
-                right: 0;
-                /* Set padding for the dropdown menu */
-                justify-content: flex-end;
-                /* Align items to the end of the container */
-            }
+        nav a:hover {
+            background-color: #0056b3;
         }
 
         .container {
-            max-width: 90%;
-            margin: 80px auto 60px;
-            /* Adjusted margin-bottom */
-            padding: 40px;
-            margin-top: 60px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 160px);
-            /* Adjusted max-height */
-            scrollbar-width: thin;
-            scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
-            transition: scrollbar-width 0.3s ease;
-            animation: hideScrollbar 4s forwards;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-        /* Add media query for smaller screens */
-        /* Adjust grid layout for smaller screens */
-        @media only screen and (max-width: 1024px) {
-            .container {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                /* Display two grid items per row */
-                max-width: 90%;
-                margin: 80px auto 20px;
-                padding: 20px;
-                margin-top: 60px;
-                margin-bottom: 40px;
-                grid-gap: 20px;
-                overflow-y: auto;
-            }
-        }
-
-        /* .container::-webkit-scrollbar {
-            width: 8px;
-            border-radius: 5px;
-        } */
-
-        /* .container::-webkit-scrollbar-track {
-            backdrop-filter: blur(10px);
-            /* Apply blur effect 
-        } */
-
-        /* .container::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: rgba(140, 140, 140, 0.308);
-            /* Transparent background */
-        /* backdrop-filter: blur(05px); */
-        /* Apply blur effect 
-            transition: background-color 0.3s ease;
-        } */
-
-        /* .container::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.7);
-            /* Transparent background on hover 
-        } */
-
-        /* Hide scrollbar after 3 seconds
-        .container.hide-scrollbar::-webkit-scrollbar {
-            scrollbar-width: thin;
-        } */
-
-        /* .container.hide-scrollbar::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background-color: transparent;
-        } */
-
-        /* .container.hide-scrollbar:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 0, 0.7);
-        } */
-
-        @keyframes hideScrollbar {
-            to {
-                /* Add class to hide scrollbar */
-                scrollbar-width: none;
-            }
-        }
-
-        .movie-poster {
-            position: relative;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-            /* Soft shadow for embossed effect */
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
-            /* Transition effect for smoother animation */
-        }
-
-        .movie-poster:hover {
-            backdrop-filter: blur(10%);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.498);
-            /* Adjust background color and opacity */
-            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
-        }
-
-        .movie-poster img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* Display movie info and apply blur effect to poster image on hover */
-        .movie-poster:hover img {
-            filter: blur(2px);
-            /* Adjust blur strength as needed */
-        }
-
-        .movie-poster:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            /* Add a drop shadow */
-        }
-
-        .movie-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+        .card {
+            background: white;
+            border-radius: 8px;
             padding: 20px;
-            box-sizing: border-box;
-            color: #fff;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-            display: none;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .movie-poster:hover .movie-info {
+        .card h2 {
+            color: #0056b3;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background-color: #272822;
+            color: #f8f8f2;
             display: block;
+            padding: 12px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 10px 0;
+            overflow-x: auto;
         }
 
-        .movie-info h2 {
-            margin: 0;
-            font-size: 20px;
+        .interactive-box {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
         }
 
-        .movie-info p {
-            margin: 5px 0 0;
-            font-size: 13px;
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
         }
 
-        .footer {
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-            color: #fff;
-            margin-top: 20px;
-            padding: 10px;
+        button:hover {
+            background-color: #218838;
+        }
+
+        footer {
             text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            /* Align items to both ends */
-            align-items: center;
-        }
-
-        .footer p {
-            margin: 0;
-            text-align: left;
-            margin-left: 15%;
-            /* Align the text to the left */
-        }
-
-        .footer-links {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: right;
-            margin-right: 15%;
-            /* Align the list items to the right */
-        }
-
-        .footer-links li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        .footer-links li a {
-            color: #fff;
-            text-decoration: none;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .footer-links li a:hover {
-            color: #ffd700;
-        }
-
-        .footer-links li a::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ffd700;
-            transition: width 0.3s ease, box-shadow 0.3s ease;
-            /* Add transition for smooth animation */
-            box-shadow: 0 0 px 0.5px #ffd700;
-            /* Add more intense glow effect */
-        }
-
-        .footer-links li a:hover::before {
-            width: 100%;
-            box-shadow: 0 0 1px 0.5px #ffd700;
-            /* Increase glow effect on hover */
-        }
-
-        /* Adjust footer for smaller screens */
-        @media only screen and (max-width: 1024px) {
-            .footer {
-                height: 50px !important;
-                text-align: justify;
-                /* Center the content */
-                backdrop-filter: blur(10px);
-                /* Adjust blur strength as needed */
-                background-color: rgba(51, 51, 51, 0.648);
-                /* Adjust background color and opacity */
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.215);
-                transition: background-color 0.3s ease;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                padding: 0;
-                text-align: center;
-            }
-
-            .footer-links {
-                margin-top: 10px;
-            }
-
-            .footer p {
-                margin: 1%;
-                text-align: right;
-                /* Align the text to the left */
-            }
-
-            .footer-links {
-                list-style-type: none;
-                padding: 0;
-                margin: 10px;
-                margin-right: 40px;
-                text-align: center;
-                /* Align the list items to the right */
-            }
-
-            .footer-links li a {
-                font-size: 13px;
-                color: #fff;
-                text-align: right;
-            }
-
+            padding: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 30px;
         }
     </style>
 </head>
-
 <body>
-    <nav class="navbar">
-        <a href="https://sesukyothole.github.io/" class="navbar-brand" style="font-size: 20px"><strong>Era Konten Digital TV Live Streaming</strong></a>
-        <ul class="navbar-links">
-            <li class="dropdown">
-                <a href="#"><i class="fa fa-bars"></i> Menu</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fa fa-search"></i> Search</a></li>
-                    <li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>
-                    <li><a href="#"><i class="fa fa-phone"></i> Contact</a></li>
-                    <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
-                </ul>
-            </li>
-        </ul>
+
+    <header>
+        <h1>Kelas Pemrograman Dasar</h1>
+        <p>SMA Negeri 1 Sewon Bantul</p>
+    </header>
+
+    <nav>
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#js">JavaScript</a>
     </nav>
 
-
     <div class="container">
-        <div class="movie-poster" onclick="window.location.href='celestialmovies.html'">
-            <img src="http://picture.dens.tv/wp/img/tvchannels_v1/340x160/1687502917_tvchannels_v1.jpg">
-            <div class="movie-info">
-                <h2>Celestial Movies</h2>
-                <p>CELESTIAL MOVIES menghadirkan film-film Mandarin terkemuka di Asia yang populer dan terbaru. (www.celestialmovies.com)</p>
+
+        <section id="html" class="card">
+            <h2>1. HTML (HyperText Markup Language)</h2>
+            <p>HTML digunakan untuk membuat struktur atau kerangka dari sebuah halaman web.</p>
+            <code>
+&lt;!-- Contoh Tag HTML --&gt;<br>
+&lt;h1&gt;Selamat Datang di SMAN 1 Sewon&lt;/h1&gt;<br>
+&lt;p&gt;Ini adalah paragraf materi HTML.&lt;/p&gt;
+            </code>
+        </section>
+
+        <section id="css" class="card">
+            <h2>2. CSS (Cascading Style Sheets)</h2>
+            <p>CSS digunakan untuk mengatur tampilan visual (desain, warna, layout) pada halaman web.</p>
+            <code>
+/* Contoh Aturan CSS */<br>
+body {<br>
+&nbsp;&nbsp;background-color: #f0f4f8;<br>
+&nbsp;&nbsp;color: #333;<br>
+}
+            </code>
+        </section>
+
+        <section id="js" class="card">
+            <h2>3. JavaScript</h2>
+            <p>JavaScript digunakan untuk menambahkan interaktivitas dan logika pada halaman web.</p>
+            
+            <div class="interactive-box">
+                <p id="teks-interaktif">Klik tombol di bawah untuk melihat aksi JavaScript:</p>
+                <br>
+                <button onclick="ubahTeks()">Ubah Teks</button>
             </div>
-        </div>
-        <div class="movie-poster" onclick="window.location.href='tvn.html'">
-            <img src="http://picture.dens.tv/wp/img/tvchannels_v1/340x160/1687502092_tvchannels_v1.jpg">
-            <div class="movie-info">
-                <h2>TVN</h2>
-                <p>tvN menghadirkan hiburan yang bervariasi seperti drama-drama populer, acara musik K-POP, program gaya hidup terkemuka dll, yang dimana beberapa programnya ditayangkan dalam waktu 24 jam dari Korea.</p>
-            </div>
-        </div>
-        <div class="movie-poster" onclick="window.location.href='tvnmovies.html'">
-            <img src="http://picture.dens.tv/wp/img/tvchannels_v1/340x160/1687502909_tvchannels_v1.jpg">
-            <div class="movie-info">
-                <h2>tvN Movies</h2>
-                <p>tvN Movies menghadirkan film Blockbuster Korea sepanjang waktu dalam semua genre.</p>
-            </div>
-        </div>
+        </section>
+
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 by sesukyothole</p>
-            <ul class="footer-links">
-                <li><a href="#"> Privacy Policy</a></li>
-                <li><a href="#"> Terms of Service</a></li>
-                <li><a href="#"> Contact Us</a></li>
-            </ul>
-        </div>
+    <footer>
+        <p>&copy; 2026 SMAN 1 Sewon Bantul — Modul Pembelajaran Pemrograman</p>
     </footer>
-</body>
 
+    <script>
+        function ubahTeks() {
+            const elemenTeks = document.getElementById('teks-interaktif');
+            elemenTeks.innerText = 'Semangat belajar coding untuk siswa-siswi SMAN 1 Sewon!';
+            elemenTeks.style.color = '#0056b3';
+            elemenTeks.style.fontWeight = 'bold';
+        }
+    </script>
+
+</body>
 </html>
