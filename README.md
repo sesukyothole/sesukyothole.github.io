@@ -1,3 +1,3 @@
 <h1>welcome</h1>
-<a href="https://sesukyothole.github.io/"><strong>Era Konten Digital TV Live Streaming</strong></a>
+<a href="https://sesukyothole.github.io/"><strong>Selamat Belajar Bersama Materi Coding Berbasis HTML, CSS, JavaScript</strong></a>
 
